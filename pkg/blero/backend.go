@@ -39,15 +39,9 @@ func (bl *Blero) Stop() error {
 // func (q *queue) enqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
 func (bl *Blero) EnqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
 
-	fmt.Sprintf("namePointer: %s", namePointer)
-	fmt.Sprintf("dataPointer: %d", dataPointer)
-
 	name := *namePointer
-	data := []byte(fmt.Sprintf("%v", *dataPointer))
+	data := []byte(*dataPointer)
 
-	fmt.Sprintf("namePointer: %s", name)
-	fmt.Sprintf("dataPointer: %d", data)
-	
 	jID, err := bl.queue.enqueueJob(name, data)
 	if err != nil {
 		return 0, err
