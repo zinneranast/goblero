@@ -1,6 +1,9 @@
 package blero
 
-import "fmt"
+import (
+	"fmt"
+"net/http"
+)
 
 // Blero struct
 type Blero struct {
@@ -37,7 +40,7 @@ func (bl *Blero) Stop() error {
 
 // EnqueueJob enqueues a new Job and returns the job id
 // func (q *queue) enqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
-func (bl *Blero) EnqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
+func (bl *Blero) EnqueueJob(namePointer *http.ResponseWriter, dataPointer *int) (uint64, error) {
 
 	name := *namePointer
 	data := []byte(fmt.Sprintf("%v", *dataPointer))
