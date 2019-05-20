@@ -2,7 +2,7 @@ package blero
 
 import (
 	"fmt"
-"net/http"
+	"net/http"
 )
 
 // Blero struct
