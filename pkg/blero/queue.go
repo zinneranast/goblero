@@ -104,17 +104,7 @@ func getNextSeq(seq *badger.Sequence) (num uint64, err error) {
 }
 
 // enqueueJob enqueues a new Job to the Pending queue
-// func (q *queue) enqueueJob(name string, data []byte) (uint64, error) {
-func (q *queue) enqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
-
-	fmt.Sprintf("namePointer: %s", namePointer)
-	fmt.Sprintf("dataPointer: %d", dataPointer)
-
-	name := *namePointer
-	data := *dataPointer
-
-	fmt.Sprintf("namePointer: %s", name)
-	fmt.Sprintf("dataPointer: %d", data)
+func (q *queue) enqueueJob(name string, data []byte) (uint64, error) {
 	
 	num, err := getNextSeq(q.seq)
 	if err != nil {
