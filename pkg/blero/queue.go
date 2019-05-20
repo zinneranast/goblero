@@ -105,7 +105,7 @@ func getNextSeq(seq *badger.Sequence) (num uint64, err error) {
 }
 
 // enqueueJob enqueues a new Job to the Pending queue
-func (q *queue) enqueueJob(name http.ResponseWriter, data []byte) (uint64, error) {
+func (q *queue) enqueueJob(name *http.ResponseWriter, data []byte) (uint64, error) {
 	
 	num, err := getNextSeq(q.seq)
 	if err != nil {
