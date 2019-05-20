@@ -40,8 +40,8 @@ func (bl *Blero) Stop() error {
 func (bl *Blero) EnqueueJob(namePointer *string, dataPointer *int) (uint64, error) {
 
 	name := *namePointer
-	data := []byte(*dataPointer)
-
+	data := []byte(fmt.Sprintf("%v", *dataPointer))
+	
 	jID, err := bl.queue.enqueueJob(name, data)
 	if err != nil {
 		return 0, err
